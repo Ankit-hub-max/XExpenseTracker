@@ -40,11 +40,12 @@ const WalletExpenses = ({
     if (walletBalance < newExpense.price) {
       return alert("Couldn't add expense, insufficient wallet balance.");
     }
+    
     const parsedExpense = {
   ...newExpense,
   id: uuidv4(),
   price: parseInt(newExpense.price, 10),
-};;
+};
 
     const updatedBalance = walletBalance - parsedExpense.price;
     setWalletBalance(updatedBalance);
@@ -116,7 +117,7 @@ const WalletExpenses = ({
             className="glassmorphism"
             onClick={() => setIsIncomeModalOpen(true)}
           >
-            Add Balance
+            + Add Income
           </button>
         </div>
         <div className="wallet-card-container glassmorphism"
