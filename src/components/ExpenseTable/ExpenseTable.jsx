@@ -134,7 +134,7 @@ const ExpenseTable = ({ expenseData, handleExpenseListUpdate, categories }) => {
         <br />
         <div className="expense-table-container">
           {currentItems.map((item, index) => (
-            <div className="expense-row" key={index}>
+            <div className="expense-row" key={item.id || index}>
               <div className="expense-row-icon-title">
                 <div className="expense-icon">
                   {React.cloneElement(getCategoryIcon(item.category), {
@@ -195,7 +195,7 @@ const ExpenseTable = ({ expenseData, handleExpenseListUpdate, categories }) => {
           <input
             name="title"
             placeholder="Title"
-            value={currExpense.title}
+            value={currExpense.title || ""}
             onChange={handleInputChange}
             requireds
           />
@@ -204,14 +204,14 @@ const ExpenseTable = ({ expenseData, handleExpenseListUpdate, categories }) => {
             name="price"
             placeholder="Price"
             type="number"
-            value={currExpense.price}
+            value={currExpense.price || ""}
             onChange={handleInputChange}
             required
           />
           <select
             className="select-option"
             name="category"
-            value={currExpense.category}
+            value={currExpense.category || ""}
             onChange={handleInputChange}
             required
           >
@@ -226,7 +226,7 @@ const ExpenseTable = ({ expenseData, handleExpenseListUpdate, categories }) => {
             name="date"
             placeholder="Date"
             type="date"
-            value={currExpense.date}
+            value={currExpense.date || ""}
             onChange={handleInputChange}
             required
           />

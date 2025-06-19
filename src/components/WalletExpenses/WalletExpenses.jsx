@@ -102,7 +102,8 @@ const WalletExpenses = ({
   return (
     <div className="wallet-container glassmorphism">
       <div className="wallet-income-expense-container">
-        <div className="wallet-card-container glassmorphism">
+        <div className="wallet-card-container glassmorphism"
+        style={{ position: "relative", zIndex: 2 }}>
           <h2>
             Wallet Balance:{" "}
             <span className="income-amount"> ₹{walletBalance} </span>
@@ -114,7 +115,9 @@ const WalletExpenses = ({
             + Add Income
           </button>
         </div>
-        <div className="wallet-card-container glassmorphism">
+        <div className="wallet-card-container glassmorphism"
+        style={{ position: "relative", zIndex: 2 }}
+        >
           <h2>
             Expenses:{" "}
             <span className="expense-amount"> ₹{getTotalExpenses()} </span>
@@ -127,7 +130,9 @@ const WalletExpenses = ({
           </button>
         </div>
       </div>
-      <PieChart data={expenses} />
+      <div style={{ marginTop: "2rem", position: "relative", zIndex: 1 }}>
+  <PieChart data={expenses} />
+</div>
 
       <Modal
         isOpen={isIncomeModalOpen}
@@ -140,7 +145,7 @@ const WalletExpenses = ({
           <input
             className="glassmorphismButton"
             name="income"
-            placeholder="Income amount"
+            placeholder="Income Amount"
             type="number"
             value={newIncome}
             onChange={(e) => handleInputChange(e, false)}
